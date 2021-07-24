@@ -1,0 +1,62 @@
+﻿@page "/"
+
+    <p class="cdub">cdub, llc</p>
+
+    <p class="font-weight-bold">Blazor Forms Validation (Built-in &amp; Custom)</p>
+
+    <p>This is a Blazor Web Assembply application, using C# / .NET Core 5.0, and is built using Razor components. </p>
+
+    <p>The <a href="/register">Student Registration</a> page implements a Blazor <i>EditForm</i> component, and uses validation to edit the information on the form.</p>
+
+    @*https://www.syncfusion.com/blogs/post/blazor-forms-and-form-validation.aspx*@
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Member</th>
+                <th>Location</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>StudentRegistration.cs</td>
+                <td>Models folder (Shared project)</td>
+                <td>Student Registration model object. This class contains the properties associated with the registration of a new student.</td>
+            </tr>
+            <tr>
+                <td>UserNameValidation.cs</td>
+                <td>Models folder (Shared project)</td>
+                <td>A custom form validation attribute will allow this application to associate the validation logic to a model property. This custom validation will be attached to the Username property of the StudentRegistration class.</td>
+            </tr>
+            <tr>
+                <td>StudentController.cs</td>
+                <td>Controllers folder (Server project)</td>
+                <td>This is an API controller, which is invoked by the RegisterStudent method (Registration page).  The <i>Post</i> method checks the ModelState, and returns a BadRequest or Ok.</td>
+            </tr>
+            <tr>
+                <td>CustomFormValidator.cs</td>
+                <td>Shared folder (Client project)</td>
+                <td>This is a custom validator component, and it is used to display the error messages on the UI (if any).</td>
+            </tr>
+            <tr>
+                <td>Registration.razor, Registration.razor.cs</td>
+                <td>Pages folder (Client project)</td>
+                <td>This component will allow us to register a new student.  If all the values on the EditForm component are valid, method RegisterStudent is called, which calls the API, using a <i>Http.PostAsJsonAsync</i> operation.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button @onclick="GoToGitHubForThisProject">Download from GitHub</button>
+
+    @code
+{
+        [Inject]
+        private NavigationManager NavManager { get; set; }
+
+        protected void GoToGitHubForThisProject()
+        {
+            NavManager.NavigateTo("https://github.com/chriswoodbury/blazor-form-validation");
+        }
+
+    }
