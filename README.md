@@ -7,5 +7,4 @@ Most of the code originated from an on-line tutorial provided by Syncfusion.
 
 [More code samples at CDub](http://cdub.info)
 
-<a href="http://cdub.info/" target="_blank">More code samples at CDub</a>
 
